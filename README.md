@@ -8,7 +8,7 @@ The code in this repository is a starting point for the application.
 
 1. Fork this repo
 2. Clone the repo to your development machine.
-3. Add *SPARK_URL* and *SPARK_TOKEN* to your local environment.  You can get your spark token at [https://developer.ciscospark.com/]
+3. Add *SPARK_URL* and *SPARK_TOKEN* to your local environment.  You can get your spark token at https://developer.ciscospark.com/
 ```
 export SPARK_URL=https://api.ciscospark.com/v1
 export SPARK_TOKEN=<YOUR SPARK TOKEN>
@@ -21,7 +21,7 @@ python app.py
 
 # Verification
 
-At this point you should have a basic webserver up and running at [http://127.0.0.1:5000/]
+At this point you should have a basic webserver up and running at http://127.0.0.1:5000/
 
 # Lab Instructions
 
@@ -29,7 +29,7 @@ Once our basic website is up, let's start adding additional functionality, as we
 
 ## Introduction to Flask
 
-[http://flask.pocoo.org/](Flask) is a microframework for web development in Python. A simple webserver application
+[Flask](http://flask.pocoo.org/) is a microframework for web development in Python. A simple webserver application
 can be defined as simply as:
 
 ```
@@ -58,11 +58,11 @@ Jinja features include:
 * Dynamic content generation
 * Template inheritence - maximize code re-use, and providing consistent layout across multiple pages
 
-For more information see [http://jinja.pocoo.org/]
+For more information see [here](http://jinja.pocoo.org/)
 
 ### Extending an existing template for a new page
 
-For this lab exercise, a base template has been provided in [./templates/base.html] we will use this to make our landing page
+For this lab exercise, a base template has been provided in [base.html](./templates/base.html) we will use this to make our landing page
 a little bit sexier! The base template also includes all of the CSS / Javascript you will need for the remainder of this
 lab.
 
@@ -107,7 +107,7 @@ about the app we are building.
 
 ## Introduction to Spark API's
 
-The Spark for Developers site [https://developer.ciscospark.com] is a great resource for exploring the Spark API's.
+The [Spark Developers site](https://developer.ciscospark.com) is a great resource for exploring the Spark API's.
 For our application we are intersted in getting a list of spark rooms.
 
 

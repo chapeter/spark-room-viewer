@@ -14,6 +14,11 @@ The code in this repository is a starting point for the application.
 export SPARK_URL=https://api.ciscospark.com/v1
 export SPARK_TOKEN=<YOUR SPARK TOKEN>
 ```
+4. Start the main application
+
+```
+python app.py
+```
 
 # Verification
 

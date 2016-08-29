@@ -9,7 +9,6 @@ The code in this repository is a starting point for the application.
 1. Fork this repo
 2. Clone the repo to your development machine.
 3. Add *SPARK_URL* and *SPARK_TOKEN* to your local environment.  You can get your spark token at [https://developer.ciscospark.com/]
-
 ```
 export SPARK_URL=https://api.ciscospark.com/v1
 export SPARK_TOKEN=<YOUR SPARK TOKEN>

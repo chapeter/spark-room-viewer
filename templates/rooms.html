@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Spark Rooms{% endblock %}
+
+
+
+{% block body %}
+
+{% if rooms|length > 0 %}
+    <div class="alert alert-success">
+        <strong>Success!</strong>
+    </div>
+{% else %}
+    <div class="alert alert-danger">
+        <strong>No items found!!</strong>
+    </div>
+{% endif %}
+
+
+<div class="container-fluid">
+
+    <div class="col-sm-4">
+        <h2>Spark Rooms</h2>
+        <p>Here's a list of all your spark rooms
+    </div>
+    <div class="row">
+
+        <div class="col-sm-4 col-sm-offset-9">
+            <form action="/rooms" method="post">
+            <button type="submit" class="btn btn-primary">Refresh</button>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+      <table id="rooms" class="table">
+        <thead>
+          <tr>
+            <th>Room name</th>
+            <th>Room Id</th>
+            <th>Room Created</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            {% for r in rooms %}
+                <tr>
+                <td>{{ r['title'] }}</td>
+                <td>{{ r['id'] }}</td>
+                <td>{{ r['created'] }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,6 +1,10 @@
 # spark-room-viewer
 
-This application is designed as a basic introduction to Flask, Bootstrap, and Cisco Spark API's
+This application is designed as a basic introduction to Flask, Bootstrap, and Cisco Spark API's. You will be building a
+small website that looks like this:
+
+
+![alt text](./static/screenshot.png "screenshot")
 
 # Getting Started
 
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
-For our application we will be building upoon this framework.
+For our application we will be building upon this framework.
 
 
 ## Introduction to Jinja templating

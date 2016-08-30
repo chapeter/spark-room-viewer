@@ -39,6 +39,9 @@
           <tr>
             <th>Room name</th>
             <th>Room Id</th>
+{#Begin Lab Exercise 2 Solution 1/2#}
+            <th>Last Activity</th>
+{#End Lab Exercise 2 Solution 1/2#}
             <th>Room Created</th>
           </tr>
         </thead>
@@ -48,6 +51,10 @@
                 <tr>
                 <td>{{ r['title'] }}</td>
                 <td>{{ r['id'] }}</td>
+{#Begin Lab Exercise 2 Solution 2/2#}
+                <td>{{ r['lastActivity'] }}</td>
+{#End Lab Exercise 2 Solution 2/2#}
+
                 <td>{{ r['created'] }}</td>
                 </tr>
 

@@ -10,9 +10,13 @@ def get_rooms():
     :return: list
         """
 
-    # your code goes here
+    # Lab Exercise 1 solution
+    url = os.getenv("SPARK_URL") + '/rooms'
+    token = os.getenv("SPARK_TOKEN")
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'Bearer {}'.format(token)}
+    return requests.get(url, headers=headers).json()['items']
 
-    pass
 
 
 @app.route('/')

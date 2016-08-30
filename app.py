@@ -17,7 +17,10 @@ def get_rooms():
 
 @app.route('/')
 def hello():
-    return "Hello, World!"
+    # Intro Exercise Solution
+
+    #return "Hello, World!"
+    return render_template('index.html', text='Hello, World')
 
 
 @app.route('/rooms', methods=['GET','POST'])

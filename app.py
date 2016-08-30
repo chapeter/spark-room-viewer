@@ -3,6 +3,17 @@ import os
 import requests
 app = Flask(__name__)
 
+
+# Lab Exercise 3 Solution 1/2
+def get_room_memberships(roomId):
+    url = os.getenv("SPARK_URL") + '/memberships?roomId={}'.format(roomId)
+    token = os.getenv("SPARK_TOKEN")
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'Bearer {}'.format(token)}
+    resp = requests.get(url, headers=headers)
+    return resp.json()['items']
+
+
 def get_rooms():
     """
     calling this function should return a list of rooms in json format.
@@ -33,6 +44,8 @@ def rooms():
         return render_template('rooms.html')
     elif request.method == 'POST':
         rooms = get_rooms() or []
+        for room in rooms:
+            room['members'] = len(get_room_memberships(room['id']))
         return render_template('rooms.html', rooms=rooms)
 
 

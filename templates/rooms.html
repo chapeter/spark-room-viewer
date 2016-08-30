@@ -38,6 +38,9 @@
         <thead>
           <tr>
             <th>Room name</th>
+{# Begin lab exercise 3 1/2 #}
+            <th># Members</th>
+{# End lab excercise 3 1/2 #}
             <th>Room Id</th>
 {#Begin Lab Exercise 2 Solution 1/2#}
             <th>Last Activity</th>
@@ -50,6 +53,9 @@
             {% for r in rooms %}
                 <tr>
                 <td>{{ r['title'] }}</td>
+{# Begin Lab Exercise 3 2/2 #}
+                <td>{{ r['members'] }}</td>
+{# Begin Lab Exercise 3 2/2 #}
                 <td>{{ r['id'] }}</td>
 {#Begin Lab Exercise 2 Solution 2/2#}
                 <td>{{ r['lastActivity'] }}</td>

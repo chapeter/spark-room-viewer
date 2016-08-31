@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os
 import requests
 app = Flask(__name__)
-
+import socket
 
 
 
@@ -59,12 +59,13 @@ def hello():
 
 @app.route('/', methods=['GET','POST'])
 def rooms():
+    hostname = socket.gethostname()
     if request.method == 'GET':
         rooms = get_rooms() or []
-        return render_template('rooms.html', rooms=rooms)
+        return render_template('rooms.html', rooms=rooms, hostname=hostname)
     elif request.method == 'POST':
         rooms = get_rooms() or []
-        return render_template('rooms.html', rooms=rooms)
+        return render_template('rooms.html', rooms=rooms, hostname=hostname)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)

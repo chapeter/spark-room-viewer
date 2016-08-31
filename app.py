@@ -46,8 +46,8 @@ def get_rooms():
 
 
 
-    for room in rooms:
-        room['memberCount'] = str(get_members(str(room['id'])))
+    #for room in rooms:
+    #    room['memberCount'] = str(get_members(str(room['id'])))
 
     return rooms
 

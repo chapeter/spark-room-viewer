@@ -3,6 +3,26 @@ import os
 import requests
 app = Flask(__name__)
 
+
+
+
+
+def get_members(roomid):
+    token = os.environ['SPARK_TOKEN']
+    auth = "Bearer %s" % token
+    url = os.environ['SPARK_URL'] + '/memberships'
+    headers = {
+        'content-type': "application/json",
+        'authorization': auth,
+    }
+    params = {'roomId': roomid
+    }
+
+    response = requests.get(url, headers=headers, params=params).json()
+    memberCount = len(response['items'])
+
+    return memberCount
+
 def get_rooms():
     """
     calling this function should return a list of rooms in json format.
@@ -12,22 +32,39 @@ def get_rooms():
 
     # your code goes here
 
-    pass
+    token = os.environ['SPARK_TOKEN']
+    auth = "Bearer %s" % token
+    url = os.environ['SPARK_URL'] + '/rooms'
+    headers = {
+        'content-type': "application/json",
+        'authorization': auth
+    }
+
+    response = requests.get(url, headers=headers).json()
+
+    rooms = response['items']
 
 
-@app.route('/')
+
+    for room in rooms:
+        room['memberCount'] = str(get_members(str(room['id'])))
+
+    return rooms
+
+
+#@app.route('/')
 def hello():
-    return "Hello, World!"
+    #return "Hello, World!"
+    return render_template('index.html', text="Hello World!")
 
-
-@app.route('/rooms', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def rooms():
     if request.method == 'GET':
-        return render_template('rooms.html')
+        rooms = get_rooms() or []
+        return render_template('rooms.html', rooms=rooms)
     elif request.method == 'POST':
         rooms = get_rooms() or []
         return render_template('rooms.html', rooms=rooms)
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
